@@ -9,36 +9,14 @@
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		
 		<script src="js/angular.min.js"></script>
+		<script src="js/angular-route.min.js"></script>
 		<script src="js/less-1.5.0.min.js"></script>
 		<script src="js/controller.js"></script>
+		<script src="js/app.js"></script>
 		
 	</head>
 	<!-- controller名の指定 -->
-	<body ng-controller="PhoneListCtrl">
-		<div class="container-fluid ">
-			<div class="row-fluid">
-				<div class="span2">
-					Search: <input ng-model="query">
-					Sort by:
-					<select ng-model="orderProp">
-						<option value="name">Alphabetical</option>
-						<option value="age">Newest</option>
-					</select>
-				</div>
-				<div class="span10">
-					<ul class="phones">
-						<!--
-							オブジェクトの数だけリピート
-							テキストボックスの文字列でフィルターをかける
-							セレクターでソートをかける
-						-->
-						<li ng-repeat="phone in phones | filter:query | orderBy: orderProp">
-							{{phone.name}}
-							<p>{{phone.snippet}}</p>				
-						</li>
-					</ul>
-				</div>
-			</div>
-		</div>
+	<body>
+		<div ng-view></div>
 	</body>
 </html>
